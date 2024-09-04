@@ -21,7 +21,7 @@ or in your `POM.xml`
 <dependencies>
    <dependency>
       <groupId>io.github.skylarkarms</groupId>
-      <artifactId>interfaces</artifactId>
+      <artifactId>lambdas</artifactId>
       <version>[latest version]</version>
    </dependency>
 </dependencies>
