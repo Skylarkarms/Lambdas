@@ -11,14 +11,9 @@ public interface ToStringFunction<T> extends Function<T, String> {
         return (V v) -> apply(before.apply(v));
     }
 
-    default boolean isValueOf() {
-        return false;
-    }
+    default boolean isValueOf() { return false; }
 
-    static<T> ToStringFunction<T> valueOf() {
-        return Lambdas.ToString.valueOf();
-    }
-
+    static<T> ToStringFunction<T> valueOf() { return Lambdas.ToString.valueOf(); }
 
     @FunctionalInterface interface Int extends ToStringFunction<Integer>, Funs.From.Int<java.lang.String> {
         java.lang.String apply(int value);
@@ -231,13 +226,9 @@ public interface ToStringFunction<T> extends Function<T, String> {
 
         java.lang.String apply(char value);
         @Override
-        default java.lang.String apply(Character character) {
-            return apply((char) character);
-        }
+        default java.lang.String apply(Character character) { return apply((char) character); }
 
-        static Char valueOf() {
-            return Lambdas.ToString.fromChar();
-        }
+        static Char valueOf() { return Lambdas.ToString.fromChar(); }
 
         @Override
         default <V> ToStringFunction<V> compose(Function<? super V, ? extends Character> before) {

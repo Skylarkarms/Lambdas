@@ -46,9 +46,7 @@ public final class Exceptionals {
         static void set(Consumer<DebugConfig.Global> config){ config.accept(ref); }
     }
 
-    public static void set(Consumer<DebugConfig.Global> config){
-        LAMBDA_DEBUG_CONFIG.set(config);
-    }
+    public static void set(Consumer<DebugConfig.Global> config){ LAMBDA_DEBUG_CONFIG.set(config); }
 
     public static final class DebugConfig {
 
@@ -179,9 +177,7 @@ public final class Exceptionals {
                 return mapper.apply(config, fun);
             }
             interface Mapper {
-                default boolean isOn() {
-                    return false;
-                }
+                default boolean isOn() { return false; }
                 <T> Predicate<T> apply(Token config, Predicate<T> fun);
                 <T> Consumer<T> apply(Token config, Consumer<T> fun);
                 <T> Supplier<T> apply(Token config, Supplier<T> fun);
@@ -193,24 +189,16 @@ public final class Exceptionals {
                 static final On ON = new On();
 
                 @Override
-                public boolean isOn() {
-                    return true;
-                }
+                public boolean isOn() { return true; }
 
                 @Override
-                public <T> Predicate<T> apply(Token config, Predicate<T> fun) {
-                    return exceptional(config, fun);
-                }
+                public <T> Predicate<T> apply(Token config, Predicate<T> fun) { return exceptional(config, fun); }
 
                 @Override
-                public <T> Consumer<T> apply(Token config, Consumer<T> fun) {
-                    return exceptional(config, fun);
-                }
+                public <T> Consumer<T> apply(Token config, Consumer<T> fun) { return exceptional(config, fun); }
 
                 @Override
-                public <T> Supplier<T> apply(Token config, Supplier<T> fun) {
-                    return exceptional(config, fun);
-                }
+                public <T> Supplier<T> apply(Token config, Supplier<T> fun) { return exceptional(config, fun); }
 
                 @Override
                 public <T> BinaryPredicate<T> apply(Token config, BinaryPredicate<T> fun) {
@@ -223,9 +211,7 @@ public final class Exceptionals {
                 }
 
                 @Override
-                public Runnable apply(Token config, Runnable fun) {
-                    return exceptional(config, fun);
-                }
+                public Runnable apply(Token config, Runnable fun) { return exceptional(config, fun); }
             }
             static class Off implements Mapper {
                 static final Off OFF = new Off();
@@ -239,9 +225,7 @@ public final class Exceptionals {
                 public <T> Supplier<T> apply(Token config, Supplier<T> test) { return test; }
 
                 @Override
-                public <T> BinaryPredicate<T> apply(Token config, BinaryPredicate<T> test) {
-                    return test;
-                }
+                public <T> BinaryPredicate<T> apply(Token config, BinaryPredicate<T> test) { return test; }
 
                 @Override
                 public <T, U> Function<T, U> apply(Token config, Function<T, U> fun) { return fun; }
@@ -291,14 +275,10 @@ public final class Exceptionals {
             }
 
             @Override
-            public boolean equals(Object obj) {
-                return areEqual(obj, core, this);
-            }
+            public boolean equals(Object obj) { return areEqual(obj, core, this); }
 
             @Override
-            public int hashCode() {
-                return Objects.hashCode(core);
-            }
+            public int hashCode() { return Objects.hashCode(core); }
         };
     }
 
@@ -346,14 +326,10 @@ public final class Exceptionals {
             }
 
             @Override
-            public boolean equals(Object o) {
-                return areEqual(o, core, this);
-            }
+            public boolean equals(Object o) { return areEqual(o, core, this); }
 
             @Override
-            public int hashCode() {
-                return Objects.hash(core);
-            }
+            public int hashCode() { return Objects.hash(core); }
         };
     }
 
@@ -372,9 +348,7 @@ public final class Exceptionals {
             }
 
             @Override
-            public BinaryPredicate<T> negate() {
-                return exceptional(config, (T t, T u) -> !test(t, u));
-            }
+            public BinaryPredicate<T> negate() { return exceptional(config, (T t, T u) -> !test(t, u)); }
 
             @Override
             public BinaryPredicate<T> and(BiPredicate<? super T, ? super T> other) {
@@ -395,14 +369,10 @@ public final class Exceptionals {
             }
 
             @Override
-            public boolean equals(Object o) {
-                return areEqual(o, core, this);
-            }
+            public boolean equals(Object o) { return areEqual(o, core, this); }
 
             @Override
-            public int hashCode() {
-                return Objects.hash(core);
-            }
+            public int hashCode() { return Objects.hash(core); }
         };
     }
 
@@ -433,14 +403,10 @@ public final class Exceptionals {
             }
 
             @Override
-            public boolean equals(Object o) {
-                return areEqual(o, core, this);
-            }
+            public boolean equals(Object o) { return areEqual(o, core, this); }
 
             @Override
-            public int hashCode() {
-                return Objects.hash(core);
-            }
+            public int hashCode() { return Objects.hash(core); }
         };
     }
 
@@ -459,14 +425,10 @@ public final class Exceptionals {
             }
 
             @Override
-            public boolean equals(Object obj) {
-                return areEqual(obj, core, this);
-            }
+            public boolean equals(Object obj) { return areEqual(obj, core, this); }
 
             @Override
-            public int hashCode() {
-                return Objects.hash(core);
-            }
+            public int hashCode() { return Objects.hash(core); }
         };
     }
 
@@ -486,14 +448,10 @@ public final class Exceptionals {
             }
 
             @Override
-            public boolean equals(Object o) {
-                return areEqual(o, core, this);
-            }
+            public boolean equals(Object o) { return areEqual(o, core, this); }
 
             @Override
-            public int hashCode() {
-                return Objects.hash(core);
-            }
+            public int hashCode() { return Objects.hash(core); }
         };
     }
 

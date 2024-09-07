@@ -5,7 +5,6 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.concurrent.Callable;
 import java.util.function.*;
 
 /**
@@ -80,9 +79,7 @@ public final class Lambdas { private Lambdas() {}
             }
 
             @Override
-            public int hashCode() {
-                return Objects.hash(u);
-            }
+            public int hashCode() { return Objects.hash(u); }
         }; }
 
         public static Funs.Unaries.OfDouble ofDouble() {return ofDouble.ref;}
@@ -265,9 +262,7 @@ public final class Lambdas { private Lambdas() {}
             }; }
 
         @SuppressWarnings("unchecked")
-        public static <T> ToStringFunction<T> valueOf() {
-            return (ToStringFunction<T>) valueOf.ref;
-        }
+        public static <T> ToStringFunction<T> valueOf() { return (ToStringFunction<T>) valueOf.ref; }
 
         private record fromInt(){ static final ToStringFunction.Int ref = new ToStringFunction.Int() {
                 @Override
@@ -393,12 +388,12 @@ public final class Lambdas { private Lambdas() {}
             }; }
 
         @SuppressWarnings("unchecked")
-        static <T> com.skylarkarms.lambdas.Predicates<T> alwaysFalse() {
+        public static <T> com.skylarkarms.lambdas.Predicates<T> defaultFalse() {
             return (com.skylarkarms.lambdas.Predicates<T>) defaultFalseP.ref;
         }
 
         @SuppressWarnings("unchecked")
-        static <T> com.skylarkarms.lambdas.Predicates<T> alwaysTrue() {
+        public static <T> com.skylarkarms.lambdas.Predicates<T> defaultTrue() {
             return (com.skylarkarms.lambdas.Predicates<T>) defaultTrueP.ref;
         }
 
@@ -522,7 +517,7 @@ public final class Lambdas { private Lambdas() {}
         }; }
 
         @SuppressWarnings("unchecked")
-        static <S> BinaryPredicate<S> equalFun() { return (BinaryPredicate<S>) equalFun.ref; }
+        public static <S> BinaryPredicate<S> equalFun() { return (BinaryPredicate<S>) equalFun.ref; }
 
         private record defaultFalse(){ static {bitwiseOr(b);}
             static final BinaryPredicate<?> ref = new BinaryPredicate<>() {
@@ -539,16 +534,14 @@ public final class Lambdas { private Lambdas() {}
                 }
 
                 @Override
-                public boolean isDefault() {
-                    return true;
-                }
+                public boolean isDefault() { return true; }
             }; }
 
         /**Default state of the {@link BinaryPredicate} interface.
          * In this state the test will always return {@code false}
          * */
         @SuppressWarnings("unchecked")
-        static<T> BinaryPredicate<T> binaryAlwaysFalse() { return (BinaryPredicate<T>) defaultFalse.ref; }
+        public static<T> BinaryPredicate<T> defaultFalse() { return (BinaryPredicate<T>) defaultFalse.ref; }
 
         private record defaultTrue(){ static {bitwiseOr(a);}
             static final BinaryPredicate<?> ref = new BinaryPredicate<>() {
@@ -572,7 +565,7 @@ public final class Lambdas { private Lambdas() {}
          * In this state the test will always return {@code true}
          * */
         @SuppressWarnings("unchecked")
-        static<T> BinaryPredicate<T> binaryAlwaysTrue() { return (BinaryPredicate<T>) defaultTrue.ref; }
+        public static<T> BinaryPredicate<T> defaultTrue() { return (BinaryPredicate<T>) defaultTrue.ref; }
 
     }
 
@@ -643,7 +636,6 @@ public final class Lambdas { private Lambdas() {}
 
                 @Override
                 public String toString() { return super.toString() + ": [EMPTY FUNCTION]"; }
-
             };
         }
 
@@ -655,10 +647,9 @@ public final class Lambdas { private Lambdas() {}
         public static boolean isNull(Supplier<?> that) { return that == NULL_SUPP.ref; }
     }
 
-
     public static final class Consumers { private Consumers() {}
 
-        public static com.skylarkarms.lambdas.Predicates.OfBoolean.Consumer defaultForBoolean() {
+        public static com.skylarkarms.lambdas.Predicates.OfBoolean.Consumer defaultOfBoolean() {
             return DEFAULT_IDENTITY.ref;
         }
         /**

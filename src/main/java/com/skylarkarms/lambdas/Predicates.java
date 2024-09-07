@@ -55,11 +55,11 @@ public interface Predicates<T> extends Predicate<T>, Function<T, Boolean> {
     }
 
     static <T> Predicates<T> defaultTrue() {
-        return Lambdas.Predicates.alwaysTrue();
+        return Lambdas.Predicates.defaultTrue();
     }
 
     static <T> Predicates<T> defaultFalse() {
-        return Lambdas.Predicates.alwaysFalse();
+        return Lambdas.Predicates.defaultFalse();
     }
 
     @FunctionalInterface interface OfInt extends Predicates<Integer>, IntPredicate {
@@ -368,9 +368,8 @@ public interface Predicates<T> extends Predicate<T>, Function<T, Boolean> {
             default void accept(Boolean value) { accept((boolean)value); }
 
             static Consumer getDefault() {
-                return Lambdas.Consumers.defaultForBoolean();
+                return Lambdas.Consumers.defaultOfBoolean();
             }
-
         }
     }
     /**

@@ -33,9 +33,7 @@ public interface BinaryPredicate<T> extends BiPredicate<T, T> {
          * */
         boolean test(T next);
         @Override
-        default boolean test(T next, T prev) {
-            return test(next);
-        }
+        default boolean test(T next, T prev) { return test(next); }
     }
 
     /**
@@ -62,86 +60,32 @@ public interface BinaryPredicate<T> extends BiPredicate<T, T> {
         };
     }
 
-//    BinaryPredicate<?>
-//            defaultFalse = new BinaryPredicate<>() {
-//        @Override
-//        public boolean test(Object next, Object prev) {
-//            return false;
-//        }
-//
-//        @Override
-//        public boolean isAlwaysFalse() {
-//            return true;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return super.toString() + "DEFAULT" + ",\n" +
-//                    " value = false";
-//        }
-//
-//        @Override
-//        public boolean isDefault() {
-//            return true;
-//        }
-//    }
-//            , defaultTrue = new BinaryPredicate<>() {
-//        @Override
-//        public boolean test(Object next, Object prev) {
-//            return true;
-//        }
-//
-//        @Override
-//        public boolean isAlwaysTrue() {
-//            return true;
-//        }
-//
-//        @Override
-//        public boolean isDefault() {
-//            return true;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return super.toString() + "DEFAULT" + ",\n" +
-//                    " value = true";
-//        }
-//    };
-
     /**
-     * Overridden by {@link BinaryPredicate#binaryAlwaysFalse()}.
+     * Overridden by {@link BinaryPredicate#defaultFalse()}.
      * Used for fast default inference.
      * @implNote Should not override, unless custom default implementation.
      * */
-    default boolean isAlwaysFalse() {
-        return false;
-    }
+    default boolean isAlwaysFalse() { return false; }
 
     /**
-     * Overridden by {@link BinaryPredicate#binaryAlwaysTrue()}.
+     * Overridden by {@link BinaryPredicate#defaultTrue()}.
      * Used for fast default inference.
      * @implNote Should not override, unless custom default implementation.
      * */
-    default boolean isAlwaysTrue() {
-        return false;
-    }
+    default boolean isAlwaysTrue() { return false; }
 
-    default boolean isDefault() {
-        return false;
-    }
+    default boolean isDefault() { return false; }
 
     /**Default state of the {@link BinaryPredicate} interface.
      * In this state the test will always return {@code false}
      * */
-    static<T> BinaryPredicate<T> binaryAlwaysFalse() {
-        return Lambdas.BinaryPredicates.binaryAlwaysFalse();
-    }
+    static<T> BinaryPredicate<T> defaultFalse() { return Lambdas.BinaryPredicates.defaultFalse(); }
 
     /**Default state of the {@link BinaryPredicate} interface.
      * In this state the test will always return {@code true}
      * */
-    static<T> BinaryPredicate<T> binaryAlwaysTrue() {
-        return Lambdas.BinaryPredicates.binaryAlwaysTrue();
+    static<T> BinaryPredicate<T> defaultTrue() {
+        return Lambdas.BinaryPredicates.defaultTrue();
     }
 
     @FunctionalInterface
@@ -151,17 +95,11 @@ public interface BinaryPredicate<T> extends BiPredicate<T, T> {
      * Default implementation of {@link BinaryPredicate}
      * which calls {@link Arrays#equals(Object[], Object[])}
      * */
-    static<S>  ArrEquals<S> arrayEquals() {
-        return Lambdas.BinaryPredicates.arrEquals();
-    }
+    static<S>  ArrEquals<S> arrayEquals() { return Lambdas.BinaryPredicates.arrEquals(); }
 
-    default boolean isArrayEquals() {
-        return false;
-    }
+    default boolean isArrayEquals() { return false; }
 
-    default boolean isEquals() {
-        return false;
-    }
+    default boolean isEquals() { return false; }
 
     static <S> BinaryPredicate<S> equalFun() {
         return Lambdas.BinaryPredicates.equalFun();

@@ -1,6 +1,6 @@
 # Lambdas
 
-[latest version] = `1.0.0`
+[latest version] = `1.0.1`
 
 Added functional interfaces for the Java Environment.
 
