@@ -409,8 +409,13 @@ public final class Lambdas { private Lambdas() {}
                 if ((notFalse = that != defaultFalseP.ref) && that != defaultTrueP.ref) {
                     return null;
                 } else return notFalse;
-            } else if (flag == a) return that == defaultTrueP.ref;
-            else return that == defaultFalseP.ref;
+            } else {
+                if (flag == a) {
+                    return that == defaultTrueP.ref ? Boolean.TRUE : null;
+                } else {
+                    return that == defaultFalseP.ref ? Boolean.FALSE : null;
+                }
+            }
         }
 
 
@@ -486,8 +491,13 @@ public final class Lambdas { private Lambdas() {}
                 if ((notFalse = that != defaultFalse.ref) && that != defaultTrue.ref) {
                     return null;
                 } else return notFalse;
-            } else if (def_flag == a) return that == defaultTrue.ref;
-            else return that == defaultFalse.ref;
+            } else {
+                if (def_flag == a) {
+                    return that == defaultTrue.ref ? Boolean.TRUE : null;
+                } else {
+                    return that == defaultFalse.ref ? Boolean.FALSE : null;
+                }
+            }
         }
 
         /**
@@ -622,8 +632,13 @@ public final class Lambdas { private Lambdas() {}
                 if ((notFalse = that != defaultFalse.ref) && that != defaultTrue.ref) {
                     return null;
                 } else return notFalse;
-            } else if (flag == a) return that == defaultTrue.ref;
-            else return that == defaultFalse.ref;
+            } else {
+                if (flag == a) {
+                    return that == defaultTrue.ref ? Boolean.TRUE : null;
+                } else {
+                    return that == defaultFalse.ref ? Boolean.FALSE : null;
+                }
+            }
         }
 
         private record NULL_SUPP() {
