@@ -1,8 +1,12 @@
 # Lambdas
 
-[latest version] = `1.0.3`
+[latest version] = `1.0.4`
 
 Added functional interfaces for the Java Environment.
+
+[found in]:
+   - [`io.github.skylarkarms:solo:`](https://github.com/Skylarkarms/solo)
+   - [`io.github.skylarkarms:print:`](https://github.com/Skylarkarms/Print)
 
 ### Implementation
 In your `build.gradle` file
